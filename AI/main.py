@@ -1,6 +1,4 @@
-#ERROR: camera.destroyAllWindows isn't a function? Maybe because I shouldn't need to open a window in the first place?
-
-#TODO: Call picture() function after signup and store to user_info
+#TODO: Save images to user_data!
 #TODO: Login by face
 #TODO: Stocks
     #TODO: Unwatch stock
@@ -16,7 +14,7 @@
 import functions
 import classes
 
-functions.picture(None)
+# functions.picture(None)
 
 #User Input
 print(f'Would you like to {classes.colors.GREEN}{classes.colors.BOLD}Log In{classes.colors.BLACK} or{classes.colors.YELLOW}{classes.colors.BOLD} Sign Up{classes.colors.BLACK}?')

@@ -262,7 +262,7 @@ def signup():
 
     user_info = picture(user_data)
 
-    pickle.dump(user_info, open(f'{accPath}Accounts/{SU_username}', "wb"))
+    pickle.dump(user_data, open(f'{accPath}Accounts/{SU_username}', "wb"))
 
     # Thanks
     print(f'{classes.colors.BLUE}Thank you for signing up, {SU_username}!')
@@ -292,6 +292,8 @@ def login():
 
                 # Check if password is correct
                 user_info = pickle.load(open(f'{accPath}Accounts/{LI_username}', "rb"))
+                print(LI_password)
+                print(user_info)
                 if LI_password == user_info['password']:
                     print(f'{classes.colors.GREEN}Welcome, {LI_username}!')
                     username = LI_username
@@ -539,13 +541,16 @@ def picture(user_info):
 
         cv2.imshow("Grabbing face...", frame)
 
-        img_name = "test.png"
+        letters = string.ascii_lowercase
+        img_name = f"{''.join(random.choice(letters) for i in range(10))}.png"
+
         cv2.imwrite(f"../../Accounts/Pictures/{img_name}", frame)
 
         counter += 1
+        time.sleep(2)
 
         if counter == 2:
             break
 
     cam.release()
-    cam.destroyAllWindows()
+    cv2.destroyAllWindows()

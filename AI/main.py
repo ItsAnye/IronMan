@@ -14,8 +14,6 @@
 import functions
 import classes
 
-# functions.picture(None)
-
 #User Input
 print(f'Would you like to {classes.colors.GREEN}{classes.colors.BOLD}Log In{classes.colors.BLACK} or{classes.colors.YELLOW}{classes.colors.BOLD} Sign Up{classes.colors.BLACK}?')
 

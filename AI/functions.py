@@ -542,9 +542,12 @@ def picture(user_info):
         cv2.imshow("Grabbing face...", frame)
 
         letters = string.ascii_lowercase
-        img_name = f"{''.join(random.choice(letters) for i in range(10))}.png"
+        img_name = f"{user_info['username']}_{''.join(random.choice(letters) for i in range(3))}.png"
 
-        cv2.imwrite(f"../../Accounts/Pictures/{img_name}", frame)
+        cv2.imwrite(f"{accPath}Accounts/Pictures/{img_name}", frame)
+
+        user_info['pictures'].append(f'{accPath}Accounts/Pictures/{img_name}')
+        pickle.dump(user_info, open(f'{accPath}Accounts/{username}', "wb"))
 
         counter += 1
         time.sleep(2)
